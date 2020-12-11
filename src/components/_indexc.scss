@@ -1,0 +1,53 @@
+//混入
+@mixin important-text {
+  color: red;
+  font-size: 25px;
+  font-weight: bold;
+  border: 1px solid blue;
+}
+.danger {
+  @include important-text;
+  background-color: green;
+}
+.test {
+  color: red;
+}
+
+// @extend 指令告诉 Sass 一个选择器的样式从另一选择器继承
+// 如果一个样式与另外一个样式几乎相同，只有少量的区别，则使用 @extend 就显得很有用。
+// 以下 Sass 实例中，我们创建了一个基本的按钮样式 .button-basic，接着我们定义了两个按钮样式
+//  .button-report 与 .button-submit，它们都继承了 .button-basic ，
+//  它们主要区别在于背景颜色与字体颜色，其他的样式都是一样的。
+
+.button-basic {
+  border: none;
+  padding: 15px 30px;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.button-report {
+  @extend .button-basic;
+  background-color: red;
+}
+
+.button-submit {
+  @extend .button-basic;
+  background-color: green;
+  color: white;
+}
+
+.ex2 .parent {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.ex2 .box {
+  flex: 1 1 150px; /*  flex-grow: 1 ，表示自动延展到最大宽度 */
+  flex: 0 1 150px; /*  No stretching: */
+  margin: 5px;
+}
+
+//函数
